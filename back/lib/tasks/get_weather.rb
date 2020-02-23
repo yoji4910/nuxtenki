@@ -9,16 +9,16 @@ namespace :get_weather do
     begin
       responce = open(MEGURO_TODAY)
       parse_text = JSON.parse(response.read)
-      weather_params = {
-        time: parse_text["daily"]["data"]["time"],
-        summry: parse_text["daily"]["data"]["summry"],
-        icon: parse_text["daily"]["data"]["icon"],
-        rainy_percent: parse_text["daily"]["data"]["precipProbability"],
-        humidity: parse_text["daily"]["data"]["humidity"],
-        temperature_high: parse_text["daily"]["data"]["temperatureHigh"],
-        temperature_low: parse_text["daily"]["data"]["temperatureLow"]
-      }
-      weather = Weather.new(weather_params)
+      # weather_params = {
+      #   time: parse_text["daily"]["data"]["time"],
+      #   summry: parse_text["daily"]["data"]["summry"],
+      #   icon: parse_text["daily"]["data"]["icon"],
+      #   rainy_percent: parse_text["daily"]["data"]["precipProbability"],
+      #   humidity: parse_text["daily"]["data"]["humidity"],
+      #   temperature_high: parse_text["daily"]["data"]["temperatureHigh"],
+      #   temperature_low: parse_text["daily"]["data"]["temperatureLow"]
+      # }
+      weather = Weather.new(icon: '1122')
       weather.save!
     rescue => e
       logger.error "parse_textのなかみ: #{JSON.pretty_generate(parse_text)}"
