@@ -13,13 +13,13 @@
 ActiveRecord::Schema.define(version: 2020_02_18_100921) do
 
   create_table "weathers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "date"
-    t.string "summry"
+    t.integer "unix_time"
+    t.string "summary"
     t.string "icon"
     t.float "temperature_high"
     t.float "temperature_low"
-    t.float "rainy_percent"
-    t.float "humidity"
+    t.integer "rainy_percent"
+    t.integer "humidity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

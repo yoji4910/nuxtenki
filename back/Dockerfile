@@ -29,6 +29,7 @@ ADD . ${APP_HOME}
 
 EXPOSE ${PORT}
 
-# RUN bundle exec whenever --update-crontab
+# Update crontab file using whenever command
+RUN bundle exec whenever --update-crontab
 
-# CMD ["rails", "server", "-b", ${HOST}, "&&", "cron", "-f"]
+CMD crond -f && bundle exec puma -C config/puma.rb

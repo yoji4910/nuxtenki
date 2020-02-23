@@ -11,7 +11,7 @@ services:
     build: back/
     ports:
       - ${BACKEND_PORT}:3000
-    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec whenever --update-crontab && crond -f && exec bundle exec rails s -b ${BACKEND_HOST}"
+    command: bash -c "rm -f /app/tmp/pids/server.pid && crond -f && bundle exec puma -C config/puma.rb"
     volumes:
       - ./back:/app
       - backend-bundle:/usr/local/bundle
