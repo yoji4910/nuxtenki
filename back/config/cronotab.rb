@@ -26,4 +26,4 @@ class Weather
   end
 end
 
-Crono.perform(Weather).every 1.minute
+Crono.perform(Weather).every 1.day, at: "1:00"
