@@ -1,11 +1,10 @@
-namespace :get_weather do
+namespace :weather do
   desc "DarkSky apiから天気情報を取得しDBに保存する"
-  task recover: :environment do
-    logger = Logger.new 'log/get_weather.log'
+  task get: :environment do
+    logger = Logger.new 'log/weather.log'
 
-    MEGURO_TODAY = "https://api.darksky.net/forecast/0ac2e828cd520754a49b314aa6b19aa0/35.6340,139.7158"
     begin
-      response = open(MEGURO_TODAY)
+      response = open(WEATHER::MEGURO_TODAY)
       parse_text = JSON.parse(response.read)
       rainy_percent = (parse_text["daily"]["data"][0]["precipProbability"] * 100).to_i
       humidity = (parse_text["daily"]["data"][0]["humidity"] * 100).to_i

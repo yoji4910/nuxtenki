@@ -12,6 +12,6 @@ set :environment, :development
 #   rake "get_weather:recover"
 # end
 
-every 1.minute do
-  rake "get_weather:recover"
-end
+# every 1.minute do
+#   rake "get_weather:recover"
+# end

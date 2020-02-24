@@ -30,6 +30,8 @@ ADD . ${APP_HOME}
 EXPOSE ${PORT}
 
 # Update crontab file using whenever command
-RUN bundle exec whenever --update-crontab
+# RUN bundle exec whenever --update-crontab
 
-CMD crond -f && bundle exec puma -C config/puma.rb
+# CMD crond -f && bundle exec puma -C config/puma.rb
+# command: bash -c "rm -f /app/tmp/pids/server.pid && crond -f && bundle exec puma -C config/puma.rb"
+
