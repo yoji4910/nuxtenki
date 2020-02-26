@@ -1,6 +1,6 @@
 # nuxtenki
 
-> tenki for onetap
+> todo and tenki
 
 ## Build Setup
 
